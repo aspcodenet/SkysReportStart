@@ -1,0 +1,45 @@
+﻿@page
+@model ReportModel
+@{
+    ViewData["Title"] = "Rapport";
+}
+
+
+<form method="GET">
+    <div class="form-group">
+        <label for="q">Filtrera</label>
+        <input type="text" class="form-control" id="q" name="q" aria-describedby="emailHelp" placeholder="Filter">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<hr/>
+<table class="table">
+<thead>
+<tr>
+    <th scope="col">Namn</th>
+    <th scope="col">Kategopi</th>
+    <th scope="col">Pris</th>
+    <th scope="col">Leverantör</th>
+</tr>
+</thead>
+<tbody>
+    @foreach (var item in Model.Items)
+    {
+    <tr>
+        <td>
+            @item.ProductName
+        </td>
+        <td>
+            @item.CategoryName
+        </td>
+        <td>
+            @item.Price
+        </td>
+        <td>
+            @item.SupplierName
+        </td>
+
+    </tr>
+    }
+</tbody>
+</table>
